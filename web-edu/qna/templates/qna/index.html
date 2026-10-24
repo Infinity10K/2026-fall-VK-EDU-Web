@@ -1,0 +1,15 @@
+{% extends 'qna/layout/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-9 d-flex flex-column gap-3">
+  <div class="d-flex gap-3 align-items-center">
+    <h3>New Questions</h3>
+    <a href="{% url 'hot' %}">Hot Questions</a>
+  </div>
+  {% for question in questions %}
+    {% include 'qna/partials/question.html' with obj=question %}
+  {% endfor %}
+  {% include 'qna/partials/pagination.html' %}
+</div>
+{% endblock %}
